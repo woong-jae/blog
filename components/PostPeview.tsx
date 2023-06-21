@@ -18,7 +18,7 @@ export default function PostPreview({
     <article className="px-3 py-4 border-t w-full border-neutral-300">
       <div>
         <Link
-          className="text-sm lg:text-base text-neutral-600"
+          className="text-sm lg:text-base text-neutral-500"
           href={`/category/${category}`}
         >
           /:{category}
@@ -28,7 +28,7 @@ export default function PostPreview({
         <h2 className="text-xl lg:text-2xl font-semibold lg:my-1 line-clamp-1">
           {title}
         </h2>
-        <p className="mb-1 text-sm lg:text-base text-neutral-600 line-clamp-2">
+        <p className="mb-1 text-sm lg:text-base text-neutral-500 line-clamp-2">
           {preview}
         </p>
       </Link>

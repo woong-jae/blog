@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <React.Fragment>
       <section className="p-5 h-44 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500">
-        <h1 className="text-2xl font-bold">Chung Jaewoong</h1>
+        <h1 className="text-2xl font-bold">woong-jae</h1>
         <p className="mt-2">Frontend developer who always strive to be diligent</p>
       </section>
       <article className="mt-8">
@@ -29,7 +29,7 @@ export default function Home() {
           })}
       </article>
       <div className="flex justify-center">
-        <Link href="/category/all">더 보기</Link>
+        <Link className="font-bold" href="/category/all">더 보기</Link>
       </div>
     </React.Fragment>
   );
