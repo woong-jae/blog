@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 
 const userData = {
   title: "햣",
-  description: "Frontend Engineer 햣",
+  description: "Frontend Engineer 정재웅",
   name: "woong-jae",
 };
 

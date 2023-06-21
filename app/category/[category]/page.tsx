@@ -6,14 +6,15 @@ export const generateStaticParams = async () => {
     const { category } = post;
     set.add(category);
     return set;
-  }, new Set<string>());
+  }, new Set<string>(["all"]));
 
   return Array.from(categorySets).map((category) => ({ category }));
 };
 
 export default function Page({ params }: { params: { category: string } }) {
   const { category } = params;
-  const posts = allPosts.filter((post) => post.category === category);
+  const posts =
+    category === "all" ? allPosts : allPosts.filter((post) => post.category === category);
 
   return (
     <article>
