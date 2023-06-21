@@ -6,7 +6,11 @@ import React from "react";
 export default function Home() {
   return (
     <React.Fragment>
-      <article>
+      <section className="p-5 h-44 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500">
+        <h1 className="text-2xl font-bold">Chung Jaewoong</h1>
+        <p className="mt-2">Frontend developer who always strive to be diligent</p>
+      </section>
+      <article className="mt-8">
         <h2 className="font-bold text-lg md:text-xl mt-2 mb-3">Recent Posts</h2>
         {allPosts
           .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
