@@ -1,0 +1,40 @@
+import PostPreview from "@/components/PostPeview";
+import { allPosts } from "contentlayer/generated";
+
+export const generateStaticParams = async () => {
+  const categorySets = allPosts.reduce<Set<string>>((set, post) => {
+    const { category } = post;
+    set.add(category);
+    return set;
+  }, new Set<string>());
+
+  return Array.from(categorySets).map((category) => ({ category }));
+};
+
+export default function Page({ params }: { params: { category: string } }) {
+  const { category } = params;
+  const posts = allPosts.filter((post) => post.category === category);
+
+  return (
+    <article>
+      <h2 className="font-bold text-lg md:text-xl mt-2 mb-3">
+        {category}
+        <span className="text-sm md:text-md mx-2">{`${posts.length}개`}</span>
+      </h2>
+      {posts
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .map((post) => {
+          return (
+            <PostPreview
+              key={post._id}
+              title={post.title}
+              category={post.category}
+              createdAt={new Date(post.date)}
+              url={post.url}
+              preview={post.preview}
+            />
+          );
+        })}
+    </article>
+  );
+}
