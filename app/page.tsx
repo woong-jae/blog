@@ -1,7 +1,8 @@
-import PostPreview from "@/components/PostPeview";
-import { allPosts } from "contentlayer/generated";
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb";
+import PostPreview from "@/components/PostPreview";
+import { allPosts } from "contentlayer/generated";
 
 export default function Home() {
   return (
@@ -10,8 +11,9 @@ export default function Home() {
         <h1 className="text-2xl font-bold">woong-jae</h1>
         <p className="mt-2">Frontend developer who always strive to be diligent</p>
       </section>
-      <article className="mt-8">
-        <h2 className="font-bold text-lg md:text-xl mt-2 mb-3">Recent Posts</h2>
+      <Breadcrumb />
+      <article>
+        <h2 className="font-bold text-xl md:text-2xl mt-2 mb-3">Recent Posts</h2>
         {allPosts
           .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
           .slice(0, 3)
@@ -29,7 +31,9 @@ export default function Home() {
           })}
       </article>
       <div className="flex justify-center">
-        <Link className="font-bold" href="/category/all">더 보기</Link>
+        <Link className="font-bold text-neutral-500" href="/category/all">
+          더 보기
+        </Link>
       </div>
     </React.Fragment>
   );
