@@ -4,7 +4,7 @@ import React, { ChangeEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-export default function Breadcrumb({ currentCategory = "" }: { currentCategory: string }) {
+export default function Breadcrumb({ currentCategory = "" }: { currentCategory?: string }) {
   const router = useRouter();
 
   function handleChange({ target }: ChangeEvent<HTMLSelectElement>) {
