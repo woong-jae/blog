@@ -3,13 +3,14 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import PostPreview from "@/components/PostPreview";
 import PostRepository from "./PostRepository";
+import userConfig from "@/user.config.json";
 
 export default function Home() {
   return (
     <React.Fragment>
       <section className="p-5 h-44 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500">
-        <h1 className="text-2xl font-bold">woong-jae</h1>
-        <p className="mt-2">Frontend developer who always strive to be diligent</p>
+        <h1 className="text-2xl font-bold">{userConfig.name}</h1>
+        <p className="mt-2">{userConfig.description}</p>
       </section>
       <Breadcrumb categories={PostRepository.categories} />
       <article>

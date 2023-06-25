@@ -1,31 +1,22 @@
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-
-const userData = {
-  title: "햣",
-  description: "Frontend developer who always strive to be diligent",
-  name: "woong-jae",
-};
+import userConfig from "@/user.config.json";
 
 export const metadata = {
-  title: userData.title,
-  description: userData.description,
+  title: userConfig.title,
+  description: userConfig.description,
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
         <div className="bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 duration-200 min-h-screen">
           <div className="mx-auto max-w-3xl">
-            <Header title={userData.title} />
+            <Header title={userConfig.title} />
             <main className="px-4">{children}</main>
-            <Footer name={userData.name} />
+            <Footer name={userConfig.name} />
           </div>
         </div>
       </body>
