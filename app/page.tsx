@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import PostPreview from "@/components/PostPreview";
-import { allPosts } from "contentlayer/generated";
+import PostRepository from "./PostRepository";
 
 export default function Home() {
   return (
@@ -11,10 +11,10 @@ export default function Home() {
         <h1 className="text-2xl font-bold">woong-jae</h1>
         <p className="mt-2">Frontend developer who always strive to be diligent</p>
       </section>
-      <Breadcrumb />
+      <Breadcrumb categories={PostRepository.categories} />
       <article>
         <h2 className="font-bold text-xl md:text-2xl mt-2 mb-3">Recent Posts</h2>
-        {allPosts
+        {PostRepository.posts
           .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
           .slice(0, 3)
           .map((post) => {

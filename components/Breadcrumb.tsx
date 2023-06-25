@@ -4,7 +4,13 @@ import React, { ChangeEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-export default function Breadcrumb({ currentCategory = "" }: { currentCategory?: string }) {
+export default function Breadcrumb({
+  categories,
+  currentCategory = "",
+}: {
+  categories: string[];
+  currentCategory?: string;
+}) {
   const router = useRouter();
 
   function handleChange({ target }: ChangeEvent<HTMLSelectElement>) {
@@ -13,7 +19,7 @@ export default function Breadcrumb({ currentCategory = "" }: { currentCategory?:
   }
 
   return (
-    <div className="flex my-4 text-lg font-medium">
+    <div className="flex mt-2 py-2 text-lg font-medium">
       <Link href="/">home</Link>
       <span className="mx-2">/</span>
       <select
@@ -23,9 +29,9 @@ export default function Breadcrumb({ currentCategory = "" }: { currentCategory?:
         value={currentCategory}
       >
         {!currentCategory && <option value="">none</option>}
-        <option value="all">all</option>
-        <option value="essay">essay</option>
-        <option value="frontend">frontend</option>
+        {categories.map((category) => (
+          <option value={category}>{category}</option>
+        ))}
       </select>
     </div>
   );

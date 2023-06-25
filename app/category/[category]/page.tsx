@@ -1,10 +1,10 @@
 import React from "react";
-import { allPosts } from "contentlayer/generated";
 import PostPreview from "@/components/PostPreview";
 import Breadcrumb from "@/components/Breadcrumb";
+import PostRepository from "@/app/PostRepository";
 
 export const generateStaticParams = async () => {
-  const categorySets = allPosts.reduce<Set<string>>((set, post) => {
+  const categorySets = PostRepository.posts.reduce<Set<string>>((set, post) => {
     const { category } = post;
     set.add(category);
     return set;
@@ -16,11 +16,13 @@ export const generateStaticParams = async () => {
 export default function Page({ params }: { params: { category: string } }) {
   const { category } = params;
   const posts =
-    category === "all" ? allPosts : allPosts.filter((post) => post.category === category);
+    category === "all"
+      ? PostRepository.posts
+      : PostRepository.posts.filter((post) => post.category === category);
 
   return (
     <React.Fragment>
-      <Breadcrumb currentCategory={category} />
+      <Breadcrumb categories={PostRepository.categories} currentCategory={category} />
       <article>
         <h2 className="font-bold text-xl md:text-2xl mt-2 mb-3">
           {category}
