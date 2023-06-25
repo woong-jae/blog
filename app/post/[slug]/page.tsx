@@ -15,6 +15,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   return {
     title: post.title,
     description: post.preview,
+    category: post.category,
     openGraph: {
       type: "article",
       url: `${userConfig.url}/post/${post.slug}`,
