@@ -4,6 +4,7 @@ import "./prism.css";
 import React from "react";
 import Link from "next/link";
 import PostRepository from "@/app/PostRepository";
+import userConfig from "@/user.config.json";
 
 export const generateStaticParams = async () =>
   PostRepository.posts.map((post) => ({ slug: post.slug }));
@@ -11,7 +12,17 @@ export const generateStaticParams = async () =>
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const post = PostRepository.getPost(params.slug);
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
-  return { title: post.title };
+  return {
+    title: post.title,
+    description: post.preview,
+    openGraph: {
+      type: "article",
+      url: `${userConfig.url}/post/${post.slug}`,
+      article: {
+        publishedTime: new Date(post.date).toISOString(),
+      },
+    },
+  };
 };
 
 export default function Page({ params }: { params: { slug: string } }) {
