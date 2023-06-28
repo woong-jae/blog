@@ -3,6 +3,7 @@ import { parse } from "node-html-parser";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypePrismPlus from "rehype-prism-plus";
+import remarkGfm from "remark-gfm";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -36,7 +37,7 @@ export default makeSource({
   contentDirPath: "posts",
   documentTypes: [Post],
   markdown: {
-    remarkPlugins: [remarkMath],
+    remarkPlugins: [remarkMath, remarkGfm],
     rehypePlugins: [rehypeKatex, rehypePrismPlus],
   },
 });
