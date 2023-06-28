@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <Script
         id="google-analytics"
         src="https://www.googletagmanager.com/gtag/js?id=G-1XTEC17LYH"
-        strategy="beforeInteractive"
+        strategy="lazyOnload"
       >{`
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
