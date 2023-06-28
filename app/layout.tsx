@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import userConfig from "@/user.config.json";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: userConfig.title,
@@ -36,6 +37,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </div>
       </body>
+      <Script
+        id="google-tag"
+        src="https://www.googletagmanager.com/gtag/js?id=G-X4R5X2W9YF"
+        strategy="afterInteractive"
+      >{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-X4R5X2W9YF');
+      `}</Script>
     </html>
   );
 }
