@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {process.env.NODE_ENV !== "development" && (
         <>
           {/* Global Site Tag (gtag.js) - Google Analytics */}
-          <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+          <Script strategy="beforeInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
           <Script
             id="gtag-init"
             dangerouslySetInnerHTML={{
