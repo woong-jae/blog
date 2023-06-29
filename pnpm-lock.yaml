@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@tailwindcss/typography': ^0.5.9
+  '@types/gtag.js': ^0.0.12
   '@types/node': 20.2.5
   '@types/react': 18.2.8
   '@types/react-dom': 18.2.4
@@ -36,6 +37,7 @@ dependencies:
 
 devDependencies:
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.3.2
+  '@types/gtag.js': 0.0.12
   '@types/node': 20.2.5
   '@types/react': 18.2.8
   '@types/react-dom': 18.2.4
@@ -1003,6 +1005,10 @@ packages:
 
   /@types/estree/1.0.1:
     resolution: {integrity: sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==}
+    dev: true
+
+  /@types/gtag.js/0.0.12:
+    resolution: {integrity: sha512-YQV9bUsemkzG81Ea295/nF/5GijnD2Af7QhEofh7xu+kvCN6RdodgNwwGWXB5GMI3NoyvQo0odNctoH/qLMIpg==}
     dev: true
 
   /@types/hast/2.3.4:
