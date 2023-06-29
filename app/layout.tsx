@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     type: "website",
   },
+  other: {
+    "google-site-verification": "pAyztDPdpi0aVq9HZX5eyXCyEAUUzZmdeAyCP0pvFKE",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -36,7 +39,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {process.env.NODE_ENV !== "development" && (
         <>
           {/* Global Site Tag (gtag.js) - Google Analytics */}
-          <Script strategy="beforeInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+          <Script
+            strategy="beforeInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
           <Script
             id="gtag-init"
             dangerouslySetInnerHTML={{
