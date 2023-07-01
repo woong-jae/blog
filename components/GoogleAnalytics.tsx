@@ -2,6 +2,7 @@
 
 import { pageview } from "@/lib/gtag";
 import NavigationEvent from "./NavigationEvent";
+import { Suspense } from "react";
 
 export default function GoogleAnalytics() {
   function handleNavigation(url: URL) {
@@ -9,5 +10,9 @@ export default function GoogleAnalytics() {
     pageview(url);
   }
 
-  return <NavigationEvent onNavigation={handleNavigation} />;
+  return (
+    <Suspense>
+      <NavigationEvent onNavigation={handleNavigation} />
+    </Suspense>
+  );
 }
