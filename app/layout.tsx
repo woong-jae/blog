@@ -1,6 +1,8 @@
 import "./globals.css";
+import { Suspense } from "react";
 import { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
+import dynamic from "next/dynamic";
 import Script from "next/script";
 
 import userConfig from "@/user.config.json";

@@ -1,18 +1,16 @@
 "use client";
 
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { pageview } from "@/lib/gtag";
-import NavigationEvent from "./NavigationEvent";
-import { Suspense } from "react";
 
 export default function GoogleAnalytics() {
-  function handleNavigation(url: URL) {
-    if (process.env.NODE_ENV === "development") return;
-    pageview(url);
-  }
+  const pathname = usePathname();
 
-  return (
-    <Suspense>
-      <NavigationEvent onNavigation={handleNavigation} />
-    </Suspense>
-  );
+  useEffect(() => {
+    if (process.env.NODE_ENV === "development") return;
+    pageview(new URL(pathname, globalThis.location.origin));
+  }, [pathname]);
+
+  return null;
 }
