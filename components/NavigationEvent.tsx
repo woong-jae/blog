@@ -8,7 +8,7 @@ export default function NavigationEvent({ onNavigation }: { onNavigation: (url: 
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const url = `$${pathname}?${searchParams}`;
+    const url = `${pathname}?${searchParams}`;
     onNavigation(new URL(url, window.location.origin));
   }, [pathname, searchParams]);
 

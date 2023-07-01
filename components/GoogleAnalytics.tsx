@@ -1,6 +1,5 @@
 "use client";
 
-import { Suspense } from "react";
 import { pageview } from "@/lib/gtag";
 import NavigationEvent from "./NavigationEvent";
 
@@ -10,9 +9,5 @@ export default function GoogleAnalytics() {
     pageview(url);
   }
 
-  return (
-    <Suspense fallback={null}>
-      <NavigationEvent onNavigation={handleNavigation} />
-    </Suspense>
-  );
+  return <NavigationEvent onNavigation={handleNavigation} />;
 }
