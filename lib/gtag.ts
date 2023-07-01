@@ -1,4 +1,6 @@
-export const GA_TRACKING_ID = 'G-1XTEC17LYH';
+import userConfig from "@/user.config.json";
+
+export const GA_TRACKING_ID = userConfig["google-analysis-tracking-id"];
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: URL) => {
