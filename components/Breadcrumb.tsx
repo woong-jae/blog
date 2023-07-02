@@ -19,7 +19,7 @@ export default function Breadcrumb({
   }
 
   return (
-    <div className="flex mt-2 py-2 text-lg font-medium">
+    <nav className="flex mt-2 py-2 text-lg font-medium">
       <Link href="/">home</Link>
       <span className="mx-2">/</span>
       <select
@@ -34,6 +34,6 @@ export default function Breadcrumb({
           <option key={category} value={category}>{category}</option>
         ))}
       </select>
-    </div>
+    </nav>
   );
 }

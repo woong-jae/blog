@@ -1,8 +1,10 @@
-import { format } from "date-fns";
-import "./katex.css";
-import "./prism.css";
 import React from "react";
 import Link from "next/link";
+import { format } from "date-fns";
+import { notFound } from "next/navigation";
+
+import "./katex.css";
+import "./prism.css";
 import PostRepository from "@/app/PostRepository";
 import userConfig from "@/user.config.json";
 
@@ -11,7 +13,7 @@ export const generateStaticParams = async () =>
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const post = PostRepository.getPost(params.slug);
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
+  if (!post) return;
   return {
     title: post.title,
     description: post.preview,
@@ -28,7 +30,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
 
 export default function Page({ params }: { params: { slug: string } }) {
   const post = PostRepository.getPost(params.slug);
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
+  if (!post) notFound();
 
   return (
     <React.Fragment>

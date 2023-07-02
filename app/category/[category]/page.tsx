@@ -1,4 +1,6 @@
 import React from "react";
+import { notFound } from "next/navigation";
+
 import PostPreview from "@/components/PostPreview";
 import Breadcrumb from "@/components/Breadcrumb";
 import PostRepository from "@/app/PostRepository";
@@ -15,6 +17,8 @@ export const generateStaticParams = async () => {
 
 export default function Page({ params }: { params: { category: string } }) {
   const { category } = params;
+  if (!PostRepository.categories.includes(category)) notFound();
+
   const posts =
     category === "all"
       ? PostRepository.posts
