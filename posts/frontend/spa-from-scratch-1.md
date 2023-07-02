@@ -61,7 +61,7 @@ ReactDOM.render(<App></App>, document.getElementById('root'));
 
 ### 웹 컴포넌트를 사용해볼까?
 
-자바스크립트를 공부하면서 '웹 컴포넌트'를 접했었다. 웹 컴포넌트에 대한 자세한 내용은 [여기](https://woong-jae.com/javascript/220222-web-component)서 확인하자.
+자바스크립트를 공부하면서 '웹 컴포넌트'를 접했었다.
 
 "브라우저 내장 기능이 제공하는 웹 컴포넌트를 사용하면 되지 않을까?"라고 생각해서 바로 실천으로 옮겼다.
 

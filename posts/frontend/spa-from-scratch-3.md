@@ -11,7 +11,7 @@ date: '2022-03-27 17:05'
 
 ## 옵저버 패턴
 
-React의 'Redux'나 Vue의 'Vuex' 같은 중앙 집중식 저장소는 [옵저버 패턴](https://woong-jae.com/javascript/220322-observer-pattern)에 기반을 둔다.
+React의 'Redux'나 Vue의 'Vuex' 같은 중앙 집중식 저장소는 옵저버 패턴에 기반을 둔다.
 
 'Publisher-Subscriber' 모델이라고도 불리는 이 패턴은, 어떤 객체의 상태가 변하면 연관된 객체들에게 알림을 보내는 디자인 패턴이다.
 
