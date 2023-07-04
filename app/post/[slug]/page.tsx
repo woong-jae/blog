@@ -7,6 +7,7 @@ import "./katex.css";
 import "./prism.css";
 import PostRepository from "@/app/PostRepository";
 import userConfig from "@/user.config.json";
+import Comments from "@/components/Comments";
 
 export const generateStaticParams = async () =>
   PostRepository.posts.map((post) => ({ slug: post.slug }));
@@ -49,6 +50,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         </header>
         <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
       </article>
+      <Comments />
     </React.Fragment>
   );
 }
