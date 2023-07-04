@@ -34,7 +34,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
   return (
     <React.Fragment>
-      <article className="mx-auto max-w-none prose prose-sm md:prose-base dark:prose-invert prose-h1:mb-0 prose-h1:text-2xl md:prose-h1:text-3xl prose-li:my-0 prose-img:mx-auto">
+      <article className="mx-auto mb-10 max-w-none prose prose-sm md:prose-base dark:prose-invert prose-h1:mb-0 prose-h1:text-2xl md:prose-h1:text-3xl prose-li:my-0 prose-img:mx-auto">
         <header className="mb-8">
           <time className="mb-2">{format(new Date(post.date), "yyyy-MM-dd")}</time>
           <h1 className=" prose-h1:mb-0" id={post.title}>

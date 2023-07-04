@@ -29,7 +29,6 @@ export default function Breadcrumb({
         value={currentCategory}
       >
         {!currentCategory && <option value="">none</option>}
-        <option value="all">all</option>
         {categories.map((category) => (
           <option key={category} value={category}>{category}</option>
         ))}

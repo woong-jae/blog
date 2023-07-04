@@ -59,13 +59,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       )}
       <Analytics />
       <GoogleAnalytics />
-      <body>
-        <div className="bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 duration-200 min-h-screen">
-          <div className="mx-auto max-w-3xl">
-            <Header title={userConfig.title} />
-            <main className="px-4">{children}</main>
-            <Footer name={userConfig.name} />
-          </div>
+      <body className="bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 duration-200 min-h-screen">
+        <div className="mx-auto max-w-3xl">
+          <Header title={userConfig.title} />
+          <main className="px-4">{children}</main>
+          <Footer name={userConfig.name} />
         </div>
       </body>
     </html>

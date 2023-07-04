@@ -6,13 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import PostRepository from "@/app/PostRepository";
 
 export const generateStaticParams = async () => {
-  const categorySets = PostRepository.posts.reduce<Set<string>>((set, post) => {
-    const { category } = post;
-    set.add(category);
-    return set;
-  }, new Set<string>(["all"]));
-
-  return Array.from(categorySets).map((category) => ({ category }));
+  return PostRepository.categories.map((category) => ({ category }));
 };
 
 export default function Page({ params }: { params: { category: string } }) {
