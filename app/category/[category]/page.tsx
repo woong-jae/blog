@@ -2,7 +2,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 
 import PostPreview from "@/components/PostPreview";
-import Breadcrumb from "@/components/Breadcrumb";
+import Navigation from "@/components/Navigation";
 import PostRepository from "@/app/PostRepository";
 
 export const generateStaticParams = async () => {
@@ -20,14 +20,19 @@ export default function Page({ params }: { params: { category: string } }) {
 
   return (
     <React.Fragment>
-      <Breadcrumb categories={PostRepository.categories} currentCategory={category} />
+      <Navigation
+        categories={PostRepository.categories}
+        currentCategory={category}
+      />
       <article>
         <h2 className="font-bold text-xl md:text-2xl mt-2 mb-3">
           {category}
           <span className="text-sm md:text-md mx-2">{`${posts.length}개`}</span>
         </h2>
         {posts
-          .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+          .sort(
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+          )
           .map((post) => {
             return (
               <PostPreview

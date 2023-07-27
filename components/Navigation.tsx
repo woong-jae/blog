@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FiChevronDown } from "react-icons/fi";
 
-export default function Breadcrumb({
+export default function Navigation({
   categories,
   currentCategory = "",
 }: {

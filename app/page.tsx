@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Breadcrumb from "@/components/Breadcrumb";
+import Navigation from "@/components/Navigation";
 import PostPreview from "@/components/PostPreview";
 import PostRepository from "./PostRepository";
 import userConfig from "@/user.config.json";
@@ -12,7 +12,7 @@ export default function Home() {
         <h1 className="text-2xl font-bold">{userConfig.name}</h1>
         <p className="mt-2">{userConfig.description}</p>
       </section>
-      <Breadcrumb categories={PostRepository.categories} />
+      <Navigation categories={PostRepository.categories} />
       <article>
         <h2 className="font-bold text-xl md:text-2xl mt-2 mb-3">Recent Posts</h2>
         {PostRepository.posts
