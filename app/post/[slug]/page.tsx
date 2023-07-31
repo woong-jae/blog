@@ -19,9 +19,12 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
     title: post.title,
     description: post.preview,
     category: post.category,
+    alternates: {
+      canonical: `/post/${post.slug}`,
+    },
     openGraph: {
       type: "article",
-      url: `${userConfig.url}/post/${post.slug}`,
+      url: `/post/${post.slug}`,
       article: {
         publishedTime: new Date(post.date).toISOString(),
       },
@@ -37,7 +40,9 @@ export default function Page({ params }: { params: { slug: string } }) {
     <React.Fragment>
       <article className="mx-auto mb-10 max-w-none prose prose-sm md:prose-base dark:prose-invert prose-h1:mb-0 prose-h1:text-2xl md:prose-h1:text-3xl prose-li:my-0 prose-img:mx-auto">
         <header className="mb-8">
-          <time className="mb-2">{format(new Date(post.date), "yyyy-MM-dd")}</time>
+          <time className="mb-2">
+            {format(new Date(post.date), "yyyy-MM-dd")}
+          </time>
           <h1 className=" prose-h1:mb-0" id={post.title}>
             {post.title}
           </h1>

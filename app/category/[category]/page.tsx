@@ -4,6 +4,22 @@ import { notFound } from "next/navigation";
 import PostPreview from "@/components/PostPreview";
 import Navigation from "@/components/Navigation";
 import PostRepository from "@/app/PostRepository";
+import { ResolvingMetadata, Metadata } from "next";
+import { Props, ScriptProps } from "next/script";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { category: string };
+}): Promise<Metadata> {
+  const { category } = params;
+
+  return {
+    alternates: {
+      canonical: `/category/${category}`,
+    },
+  };
+}
 
 export const generateStaticParams = async () => {
   return PostRepository.categories.map((category) => ({ category }));
